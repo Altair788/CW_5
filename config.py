@@ -5,10 +5,20 @@ ROOT_PATH = Path(__file__).parent
 
 DATABASE_INI_PATH = ROOT_PATH.joinpath("data", "database.ini")
 
-favorite_companies_id_hh = ['3529', '26624', '15478', '2180', '1057', '3776', '2733062', '1740', '87021', '4233', '740']
-params_for_getting_employers = {"text": "", "page": 0, "per_page": 100, "only_with_vacancies": "true",
+favorite_companies_id_hh = ['3529', '78638', '906557', '9498112', '4649269', '5390761',
+                            '6189', '3125', '26624', '15478', '2180', '1057',
+                            '3776', '2733062', '1740', '87021', '4233', '740']
+
+params_for_getting_employers = {"text": "",
+                                "page": 0,
+                                "per_page": 100,
+                                "only_with_vacancies": "true",
                                 "sort_by": "by_name"}
-params_for_getting_vacancies = {"text": "python", "page": 0, "per_page": 100, "only_with_salary": "true"}
+
+params_for_getting_vacancies = {"text": "",
+                                "page": 0,
+                                "per_page": 100,
+                                "only_with_salary": "true"}
 
 
 def config(filename=DATABASE_INI_PATH, section="postgresql") -> dict[str, str]:
