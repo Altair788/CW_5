@@ -1,3 +1,4 @@
+from abc import ABC, abstractmethod
 from typing import Any
 
 import psycopg2
@@ -8,9 +9,34 @@ from src.employer import Employer
 from src.vacancy import Vacancy
 
 
-class DBManager:
+class AbstractDBManager(ABC):
     """
-    Представляет класс менеджера БД
+    Представляет абстрактный класс AbstractDBManager.
+    """
+    @abstractmethod
+    def create_table(self) -> None:
+        """
+        Абстрактный метод для создания таблиц.
+        """
+
+        pass
+
+    @abstractmethod
+    def drop_table(self, table: str) -> None:
+        """
+        Абстрактный метод для удаления таблицы.
+
+        Args:
+             table(str): наименование таблицы.
+
+        """
+        pass
+
+
+class DBManager(AbstractDBManager):
+    """
+    Представляет класс менеджера БД.
+    Наследует функциональность от абстрактного класса AbstractDBManager.
     """
 
     def __init__(self, dbname: str, user: str, password: str, host: str, port: int):
